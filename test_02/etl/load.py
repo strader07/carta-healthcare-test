@@ -27,6 +27,6 @@ class DataLoader(object):
         df = df.drop_duplicates(subset=["MRN"], keep="last").reset_index(drop=True)
 
         ## Implement load into postgres
-        conn_url = f'postgresql+psycopg2://postgres@{self.psql_host}/{self.psql_db}'
+        conn_url = f'postgresql+psycopg2://{self.psql_host}/{self.psql_db}'
         conn = create_engine(conn_url)
         df.to_sql("patients", conn, if_exists='replace', index=False, method='multi')

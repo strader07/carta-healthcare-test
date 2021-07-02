@@ -61,7 +61,7 @@ class FHIRDataTransformer(object):
 
     def get_patient_resources(self):
         ## Query data in postgres, produce array of Patient FHIR resources
-        conn = create_engine(f'postgresql+psycopg2://postgres@{self.psql_host}/{self.psql_db}')
+        conn = create_engine(f'postgresql+psycopg2://{self.psql_host}/{self.psql_db}')
         query = "SELECT * from patients;"
         records = conn.execute(query).fetchall()
 
@@ -74,7 +74,7 @@ class FHIRDataTransformer(object):
 
     def get_encounter_resources(self):
         ## Query data in postgres, produce array of Encounter FHIR resources
-        conn = create_engine(f'postgresql+psycopg2://postgres@{self.psql_host}/{self.psql_db}')
+        conn = create_engine(f'postgresql+psycopg2://{self.psql_host}/{self.psql_db}')
         query = "SELECT * from patients;"
         records = conn.execute(query).fetchall()
 
